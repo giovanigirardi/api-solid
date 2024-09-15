@@ -9,7 +9,8 @@
 		"start": "node build/server.js",
 		"build": "tsup src -d build",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage"
 	},
 	"keywords": [],
 	"author": "",
@@ -18,6 +19,7 @@
 		"@biomejs/biome": "1.8.3",
 		"@types/bcryptjs": "2.4.6",
 		"@types/node": "22.5.4",
+		"@vitest/coverage-v8": "2.1.1",
 		"prisma": "5.19.1",
 		"tsup": "8.2.4",
 		"tsx": "4.19.0",
