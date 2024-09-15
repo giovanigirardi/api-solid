@@ -16,14 +16,14 @@ describe("Authenticate", () => {
 	});
 
 	it("should be able to get the user profile", async () => {
-		await usersRepository.create({
+		const { id } = await usersRepository.create({
 			name: "John Doe",
 			email: "johndoe@email.com",
 			password_hash: await hash("123456", 10),
 		});
 
 		const { user } = await sut.execute({
-			userId: "user-1",
+			userId: id,
 		});
 
 		expect(user.id).toEqual(expect.any(String));
