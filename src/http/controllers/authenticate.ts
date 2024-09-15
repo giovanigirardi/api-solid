@@ -6,8 +6,6 @@ import { makeAuthenticateUseCase } from "@/use-cases/factories/make-authenticate
 import type { FastifyReply, FastifyRequest } from "fastify";
 
 export async function authenticate(request: FastifyRequest, reply: FastifyReply) {
-	console.log("request", request.body);
-
 	const registerBodySchema = z.object({
 		email: z.string().email(),
 		password: z.string().min(6),

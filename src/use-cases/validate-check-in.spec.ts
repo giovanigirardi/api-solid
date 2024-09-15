@@ -31,7 +31,7 @@ describe("Validate check in use case", () => {
 			checkInId: createdCheckIn.id,
 		});
 
-		expect(checkIn.validated_at).toEqual(expect.any(Date));
+		expect(createdCheckIn.validated_at).toEqual(expect.any(Date));
 		expect(checkInsRepository.items[0].validated_at).toEqual(expect.any(Date));
 	});
 

@@ -6,6 +6,7 @@ import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-
 import { CheckInUseCase } from "./check-in";
 import { MaxDistanceError } from "./errors/max-distance";
 import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins";
+import { ResourceNotFound } from "./errors/resource-not-found";
 
 let usersRepository: InMemoryCheckInsRepository;
 let gymsRepository: InMemoryGymsRepository;
@@ -42,6 +43,17 @@ describe("Check in use case", () => {
 		});
 
 		expect(checkIn.id).toEqual(expect.any(String));
+	});
+
+	it("should not be able to check in on inexistent gym", async () => {
+		await expect(
+			sut.execute({
+				userId: "user-1",
+				gymId: "inexistent-gym",
+				userLatitude: 0,
+				userLongitude: 0,
+			}),
+		).rejects.toBeInstanceOf(ResourceNotFound);
 	});
 
 	it("should not be able to check in twice on te same day", async () => {
