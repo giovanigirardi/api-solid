@@ -11,7 +11,7 @@ describe("register use case", () => {
 		const usersRepository = new InMemoryUsersRepository();
 		const registerUseCase = new RegisterUseCase(usersRepository);
 
-		const { user } = await registerUseCase.handle({
+		const { user } = await registerUseCase.execute({
 			name: "John Doe",
 			email: "johndoe@email.com",
 			password: "123456",
@@ -24,7 +24,7 @@ describe("register use case", () => {
 		const usersRepository = new InMemoryUsersRepository();
 		const registerUseCase = new RegisterUseCase(usersRepository);
 
-		const { user } = await registerUseCase.handle({
+		const { user } = await registerUseCase.execute({
 			name: "John Doe",
 			email: "johndoe@email.com",
 			password: "123456",
@@ -40,14 +40,14 @@ describe("register use case", () => {
 
 		const duplicatedEmail = "johndoe@email.com";
 
-		await registerUseCase.handle({
+		await registerUseCase.execute({
 			name: "John Doe",
 			email: duplicatedEmail,
 			password: "123456",
 		});
 
 		await expect(() =>
-			registerUseCase.handle({
+			registerUseCase.execute({
 				name: "John Doe",
 				email: duplicatedEmail,
 				password: "123456",
