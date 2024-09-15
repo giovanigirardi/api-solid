@@ -1,4 +1,4 @@
-import { compare } from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 import { InvalidCredentialsError } from "./errors/invalid-credentials";
 
@@ -8,6 +8,8 @@ interface AuthenticateUseCaseRequest {
 	email: string;
 	password: string;
 }
+
+const { compare } = bcrypt;
 
 export class AuthenticateUseCase {
 	constructor(private userRepository: UsersRepository) {}

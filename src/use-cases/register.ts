@@ -1,4 +1,4 @@
-import { hash } from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 import { UserAlreadyExistsError } from "./errors/user-already-exists";
 
@@ -9,6 +9,8 @@ interface RegisterUseCaseRequest {
 	email: string;
 	password: string;
 }
+
+const { hash } = bcrypt;
 
 export class RegisterUseCase {
 	constructor(private usersRepository: UsersRepository) {}
