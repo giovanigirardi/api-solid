@@ -2,7 +2,7 @@ import { PrismaGymsRepository } from "@/repositories/prisma/prisma-gyms-reposito
 
 import { ListNearbyGymUseCase } from "../list-nearby-gyms";
 
-export function makeAuthenticateUseCase() {
+export function makeListNearbyGymsUseCase() {
 	const gymsRepository = new PrismaGymsRepository();
 
 	const listNearbyGymsUseCase = new ListNearbyGymUseCase(gymsRepository);

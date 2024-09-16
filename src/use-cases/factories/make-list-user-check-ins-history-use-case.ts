@@ -2,7 +2,7 @@ import { PrismaCheckInsRepository } from "@/repositories/prisma/prisma-check-ins
 
 import { ListUserCheckInsHistoryUseCase } from "../list-user-check-ins-history";
 
-export function makeAuthenticateUseCase() {
+export function makeListUserCheckInsHistoryUseCase() {
 	const checkInsRepository = new PrismaCheckInsRepository();
 
 	const listUserCheckInsHistoryUseCase = new ListUserCheckInsHistoryUseCase(checkInsRepository);
