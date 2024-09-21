@@ -23,7 +23,7 @@ describe("Profile", () => {
 			expect.objectContaining({
 				id: expect.any(String),
 				name: "John Doe",
-				email: "johndoe@email.com",
+				email: "johndoe@example.com",
 			}),
 		);
 	});

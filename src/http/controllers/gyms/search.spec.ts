@@ -14,7 +14,7 @@ describe("Search Gyms", () => {
 	});
 
 	it("should be able to search a gym", async () => {
-		const { token } = await createAndAuthenticateUser(app);
+		const { token } = await createAndAuthenticateUser(app, true);
 
 		await request(app.server).post("/gyms").set("Authorization", `Bearer ${token}`).send({
 			title: "Academia do Zé",
